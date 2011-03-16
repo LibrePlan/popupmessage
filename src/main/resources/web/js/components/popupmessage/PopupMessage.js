@@ -2,7 +2,9 @@ zk.$package("components.popupmessage");
 
 components.popupmessage.PopupMessage = zk.$extends(zk.Widget,{
 	$define : {
-		effectName : null
+		effectName : null,
+		title : null,
+		content : null
 	},
 	bind_ : function(){
 		this.$supers('bind_', arguments);

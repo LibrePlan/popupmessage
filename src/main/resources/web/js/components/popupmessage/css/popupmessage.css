@@ -1,12 +1,27 @@
 @CHARSET "UTF-8";
 
+div .roundedcorner{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
 div .popupmessage{
     position : absolute;
     top: 0;
     left: 0;
     z-index: 10000;
-    background: black;
-    width: 100px;
-    height: 100px;
-    display:none
+    width: 150px;
+    display:none;
+    background : #62AEE2;
+}
+
+div .popupmessage .title{
+    text-align : center;
+    background : #fff;
+    margin : 5px;
+}
+
+div .popupmessage .content{
+    margin : 10px;
 }

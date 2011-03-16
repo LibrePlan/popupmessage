@@ -6,7 +6,26 @@ import org.zkoss.zk.ui.HtmlBasedComponent;
 import org.zkoss.zk.ui.sys.ContentRenderer;
 
 public class PopupMessage extends HtmlBasedComponent {
+
     private String _effectName;
+    private String _title;
+    private String _content;
+
+    public String getTitle() {
+        return _title;
+    }
+
+    public void setTitle(String title) {
+        _title = title;
+    }
+
+    public String getContent() {
+        return _content;
+    }
+
+    public void setContent(String content) {
+        _content = content;
+    }
 
     public String getEffectName(){
         return _effectName;
@@ -18,6 +37,8 @@ public class PopupMessage extends HtmlBasedComponent {
 
     public void renderProperties(ContentRenderer renderer) throws IOException{
         renderer.render("_effectName", _effectName);
+        renderer.render("_title", _title);
+        renderer.render("_content", _content);
 
         super.renderProperties(renderer);
     }
