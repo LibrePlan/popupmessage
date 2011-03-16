@@ -3,6 +3,7 @@ function(out){
 		
 		out.push('<div class="title roundedcorner">', this.getTitle(), '</div>');
 		out.push('<div class="content roundedcorner">', this.getContent(), '</div>');
+		out.push('<div class="close"><a href="#">close</a></div>');
 		
 		out.push('</div>');
 }
