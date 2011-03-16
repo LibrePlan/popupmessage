@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<language-addon>
+    <addon-name>popupmessage</addon-name>
+    <language-name>xul/html</language-name>
+    <component>
+        <component-name>popupmessage</component-name>
+        <component-class>com.igalia.java.zk.components.PopupMessage</component-class>
+        <widget-class>components.popupmessage.PopupMessage</widget-class>
+        <mold>
+            <mold-name>default</mold-name>
+            <mold-uri>mold/popup-message.js</mold-uri>
+            <css-uri>css/popupmessage.css</css-uri>
+        </mold>
+    </component>
+</language-addon>

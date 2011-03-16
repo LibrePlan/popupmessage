@@ -1,0 +1,4 @@
+<package name="components.popupmessage" language="xul/html">
+     <script src="lib/jquery-ui-slide.js"/>
+    <widget name="PopupMessage"/>
+</package>
