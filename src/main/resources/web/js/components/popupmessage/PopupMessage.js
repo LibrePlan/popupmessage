@@ -20,11 +20,12 @@ components.popupmessage.PopupMessage = zk.$extends(zk.Widget,{
 		jq( "div .popupmessage" ).show(this.getEffectName(),
 										{}, //Options
 										1000, //Effect duration
-										this.isAutoHide() ? this._hideMessage : null);
+										this.isAutoHide() ? this._autoHideCallback : null);
 	},
 	_hideMessage : function() {
-		setTimeout(function() {
-			jq( "div .popupmessage:visible" ).fadeOut(1000);
-		}, 3000 );
+		jq( "div .popupmessage:visible" ).fadeOut(1000);
+	},
+	_autoHideCallback : function(){
+		setTimeout(this._hideMessage, 3000);
 	}
 })
