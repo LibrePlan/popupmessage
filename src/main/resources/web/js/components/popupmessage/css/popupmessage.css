@@ -9,14 +9,14 @@ div .roundedcorner{
 div .popupmessage{
     position : absolute;
     top: 0;
-    left: 0;
     z-index: 10000;
     width: 150px;
     display:none;
     background : #62AEE2;
+    margin : 5px 5px;
 }
 
-div .popupmessage .shadow{
+div .popupmessage.shadow{
     -moz-box-shadow: 3px 3px 4px #A3A2A2;
     -webkit-box-shadow: 3px 3px 4px #A3A2A2;
     box-shadow: 3px 3px 4px #A3A2A2;

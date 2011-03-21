@@ -2,6 +2,7 @@ package com.igalia.java.zk.components;
 
 import java.io.IOException;
 
+import org.zkoss.json.JSONObject;
 import org.zkoss.zk.au.out.AuInvoke;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.HtmlBasedComponent;
@@ -11,12 +12,17 @@ public class PopupMessage extends HtmlBasedComponent {
 
     private static String _ID = "popupmessage";
     private String _effectName;
+    private JSONObject _effectOptions;
     private String _title;
     private String _content;
-    private boolean _autoHide = true;
+    private boolean _autoHide;
+    private JSONObject _customCss;
 
     public PopupMessage(){
         setId(_ID);
+        placeLeft();
+        _effectName = "slide";
+        _autoHide = true;
     }
 
     public String getTitle() {
@@ -37,12 +43,17 @@ public class PopupMessage extends HtmlBasedComponent {
         smartUpdate("content", content);
     }
 
-    public String getEffectName(){
+    public String getEffect(){
         return _effectName;
     }
 
-    public void setEffectName(String effectName){
+    public void setEffect(String effectName){
         _effectName = effectName;
+    }
+
+    public void setEffect(String effectName, JSONObject effectOptions){
+        _effectName = effectName;
+        _effectOptions = effectOptions;
     }
 
     public boolean getAutoHide(){
@@ -57,15 +68,34 @@ public class PopupMessage extends HtmlBasedComponent {
         setParent(component);
     }
 
+    public void placeRight(){
+        getCustomCss().remove("left");
+        getCustomCss().put("right", "0px");
+    }
+
+    public void placeLeft(){
+        getCustomCss().remove("right");
+        getCustomCss().put("left", "0px");
+    }
+
     public void show(){
         response("popup", new AuInvoke(this, "_showMessage"));
     }
 
+    private JSONObject getCustomCss(){
+        if ( _customCss == null)
+            _customCss = new JSONObject();
+
+        return _customCss;
+    }
+
     public void renderProperties(ContentRenderer renderer) throws IOException{
         renderer.render("_effectName", _effectName);
+        renderer.render("_effectOptions", _effectOptions);
         renderer.render("_title", _title);
         renderer.render("_content", _content);
         renderer.render("_autoHide", _autoHide);
+        renderer.render("_customCss", _customCss);
 
         super.renderProperties(renderer);
     }
