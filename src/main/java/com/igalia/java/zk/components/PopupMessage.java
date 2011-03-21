@@ -2,15 +2,22 @@ package com.igalia.java.zk.components;
 
 import java.io.IOException;
 
+import org.zkoss.zk.au.out.AuInvoke;
+import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.HtmlBasedComponent;
 import org.zkoss.zk.ui.sys.ContentRenderer;
 
 public class PopupMessage extends HtmlBasedComponent {
 
+    private static String _ID = "popupmessage";
     private String _effectName;
     private String _title;
     private String _content;
-    private boolean _autoHide = false;
+    private boolean _autoHide = true;
+
+    public PopupMessage(){
+        setId(_ID);
+    }
 
     public String getTitle() {
         return _title;
@@ -18,6 +25,7 @@ public class PopupMessage extends HtmlBasedComponent {
 
     public void setTitle(String title) {
         _title = title;
+        smartUpdate("title", title);
     }
 
     public String getContent() {
@@ -26,6 +34,7 @@ public class PopupMessage extends HtmlBasedComponent {
 
     public void setContent(String content) {
         _content = content;
+        smartUpdate("content", content);
     }
 
     public String getEffectName(){
@@ -42,6 +51,14 @@ public class PopupMessage extends HtmlBasedComponent {
 
     public void setAutoHide(boolean autoHide){
         _autoHide = autoHide;
+    }
+
+    public void insertIn(Component component){
+        setParent(component);
+    }
+
+    public void show(){
+        response("popup", new AuInvoke(this, "_showMessage"));
     }
 
     public void renderProperties(ContentRenderer renderer) throws IOException{
