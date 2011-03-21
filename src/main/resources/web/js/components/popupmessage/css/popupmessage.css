@@ -16,6 +16,16 @@ div .popupmessage{
     background : #62AEE2;
 }
 
+div .popupmessage .shadow{
+    -moz-box-shadow: 3px 3px 4px #A3A2A2;
+    -webkit-box-shadow: 3px 3px 4px #A3A2A2;
+    box-shadow: 3px 3px 4px #A3A2A2;
+    /* For IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#A3A2A2')";
+    /* For IE 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#A3A2A2');
+}
+
 div .popupmessage .title{
     text-align : center;
     background : #fff;
