@@ -13,6 +13,7 @@ public class PopupMessage extends HtmlBasedComponent {
     private static String _ID = "popupmessage";
     private String _effectName;
     private JSONObject _effectOptions;
+    private int _effectDuration;
     private String _title;
     private String _content;
     private boolean _autoHide;
@@ -23,6 +24,7 @@ public class PopupMessage extends HtmlBasedComponent {
         placeLeft();
         _effectName = "slide";
         _autoHide = true;
+        _effectDuration = 1000;
     }
 
     public String getTitle() {
